@@ -2,7 +2,9 @@ package com.hplus.kaoqin.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.hplus.kaoqin.entity.Employee;
 import com.hplus.kaoqin.entity.User;
+import com.hplus.kaoqin.mapper.EmployeeMapper;
 import com.hplus.kaoqin.mapper.UserMapper;
 import com.hplus.kaoqin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,4 +38,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
          return null;
     }
+
 }
