@@ -7,7 +7,7 @@
     "createTimeStr": "2018-03-16",
     "icon": "fa fa-key",
     "menuId": 1,
-    "menuName": "权限管理",
+    "menuName": "考勤管理",
     "menuType": "M",
     "orderNum": "1",
     "parentId": 0,
@@ -24,14 +24,14 @@
     "createTimeStr": "2018-03-16",
     "icon": "#",
     "menuId": 2,
-    "menuName": "用户管理",
+    "menuName": "员工管理",
     "menuType": "C",
     "orderNum": "1",
     "parentId": 1,
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/sys/user.html",
+    "url": "/pages/sys/user.html",
     "visible": "10"
   },
   {
@@ -133,7 +133,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/sys/role.html",
+    "url": "/pages/sys/role.html",
     "visible": "10"
   },
   {
