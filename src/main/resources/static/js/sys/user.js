@@ -168,13 +168,18 @@ function zTreeOnClick(event, treeId, treeNode) {
 var childs = [];
 function insert() {
     $(".modal").modal("toggle")
+}
+
+    $('#btn_confrim').click(function () {
+        $('[name="published"]').val(false);
+        $('#blog-form').submit();
 
     var name = $("#name").val();
-    var merchant = $("#merchant").val();
+    var merchantName = $("#merchantName").val();
     var shift = $("#shift").val();
     var startTime = $("#sdate").val();
     var endTime = $("#edate").val();
-    var workhour = $("#workhour").val();
+    var workHour = $("#workHour").val();
 
     $.ajax({
         url: "/kq/user/insertEmployee",
@@ -182,11 +187,11 @@ function insert() {
         dataType: "json",
         data: {
             "name": name,
-            "merchant": merchant,
+            "merchantName": merchantName,
             "shift": shift,
             "startTime": startTime,
             "endTime": endTime,
-            "workhour": workhour
+            "workHour": workHour
         },
         success: function (res) {
             if (res.code == 2000) {
@@ -224,7 +229,8 @@ function insert() {
         }
     });
 
-}
+});
+
 function update(x) {
     $(".modal").modal("toggle")
     childs = x.parentNode.parentNode.childNodes;
