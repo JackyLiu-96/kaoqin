@@ -1,0 +1,88 @@
+/*全局样式开始*/
+body {
+    font-size: 13px;
+    color: #676a6c;
+}
+/*全局样式结束*/
+
+/*搜索样式开始================*/
+#toolbar .btn-primary{
+    color: #1a7bb9
+}
+#toolbar .btn-rounded{
+    background: transparent;
+}
+
+#toolbar .btn-danger{
+    color: #d43f3a;
+}
+
+#searchForm{
+    padding-left: 15px;
+}
+#searchForm select.form-control{
+    width: 160px;
+}
+/*搜索样式结束=============*/
+
+/*表格样式开始==============*/
+/*工具栏*/
+#toolbar{
+    margin-left: 15px;
+}
+
+
+/*primary按钮*/
+.btn-primary {
+    background-color: #1ab394;
+    border-color: #1ab394;
+    color: #FFFFFF;
+}
+
+.bootstrap-table{
+    padding: 0px 15px;
+}
+
+/*圆形按钮*/
+.btn-rounded {
+    border-radius: 50px;
+}
+
+/*容器设置*/
+.container {
+    background-color: #F3F3F4;
+    height: 100%;
+    width: 100%;
+}
+
+/*row间距设置*/
+.container>.row{
+    background-color: #fff;
+    padding: 10px 0px;
+    width: 99%;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+    border-radius: 6px;
+    margin-top: 30px;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+
+
+/*正常样式*/
+
+.badge-primary {
+    background-color: #1ab394;
+}
+
+
+/*停用样式*/
+.badge-danger{
+    background-color:red;
+    color: #FFFFFF;
+}
+
+/*表格样式结束*/
+
+
+

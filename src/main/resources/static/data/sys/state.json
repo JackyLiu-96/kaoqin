@@ -1,0 +1,32 @@
+[
+  {
+    "createBy": "admin",
+    "createTime": "2018-03-16 11:33:00",
+    "cssClass": "radio radio-info radio-inline",
+    "dictCode": 6,
+    "dictLabel": "正常",
+    "dictSort": 1,
+    "dictType": "sys_normal_disable",
+    "dictValue": "0",
+    "isDefault": "Y",
+    "remark": "正常状态",
+    "status": "0",
+    "updateBy": "ry",
+    "updateTime": "2018-03-16 11:33:00"
+  },
+  {
+    "createBy": "admin",
+    "createTime": "2018-03-16 11:33:00",
+    "cssClass": "radio radio-danger radio-inline",
+    "dictCode": 7,
+    "dictLabel": "停用",
+    "dictSort": 2,
+    "dictType": "sys_normal_disable",
+    "dictValue": "1",
+    "isDefault": "N",
+    "remark": "停用状态",
+    "status": "0",
+    "updateBy": "ry",
+    "updateTime": "2018-03-16 11:33:00"
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "createBy": null,
+    "createTime": "2018-03-16 11:33:00",
+    "dataScope": "1",
+    "delFlag": "0",
+    "deptIds": null,
+    "flag": false,
+    "menuIds": null,
+    "params": {},
+    "remark": "管理员",
+    "roleId": 1,
+    "roleKey": "admin",
+    "roleName": "管理员",
+    "roleSort": "1",
+    "searchValue": null,
+    "status": "01",
+    "updateBy": null,
+    "updateTime": null
+  },
+  {
+    "createBy": null,
+    "createTime": "2018-03-16 11:33:00",
+    "dataScope": "2",
+    "delFlag": "0",
+    "deptIds": null,
+    "flag": false,
+    "menuIds": null,
+    "params": {},
+    "remark": "普通角色",
+    "roleId": 2,
+    "roleKey": "common",
+    "roleName": "普通角色",
+    "roleSort": "2",
+    "searchValue": null,
+    "status": "01",
+    "updateBy": null,
+    "updateTime": null
+  }
+]

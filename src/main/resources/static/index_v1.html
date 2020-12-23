@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>H+已不再支持老旧的IE</title>    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="js/plugins/jquery/jquery.min.js?v=2.1.4"></script>
+    <script src="js/plugins/echarts/echarts-all.js"></script>
+
+    <style>
+        #hello{
+            background-color: #D9E8D1;
+            width: 70%;
+            margin: auto;
+            height: 5%;
+            padding-top: 2.5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="hello" ><p id="time" align="center"></p></div>
+<div id="main" style="width: 650px;height:400px;margin:0px 27% 20px"></div>
+<script>
+    window.onload=function () {
+        window.setInterval(function () {
+            var date = new Date();
+            var weeks = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+            var h = date.getHours();
+            var good;
+            if(h<12){
+                good="上午好！"
+            }else if(h>=12&&h<18){
+                good="下午好！"
+            }else{
+                good="晚上好！"
+            }
+            document.getElementById("time").innerHTML=("亲爱的xx,"+good+",欢迎使用xx系统！当前时间为："+date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日 " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()+" "+weeks[date.getDay()])
+        },1000)
+
+        var myChart = echarts.init(document.getElementById('main'));
+
+
+        var option = {
+            title: {
+                text: '统计各部门人数',
+                textAlign:'left',
+                x:270,
+                y:"top"
+            },
+            xAxis: {
+                data: deptNames,
+                type:'category',
+                name:'部门名'
+
+            },
+            yAxis: {
+                name:'人数',
+
+            },
+            series: [{
+
+                data: pnums,
+                type: 'bar'
+            }]
+        };
+
+
+        myChart.setOption(option);
+    };
+
+    var deptNames=[];
+    var pnums=[];
+    $(function () {
+
+        $.ajax({
+            type: "get",
+            url: "data/sys/dept.json",
+            dataType: "JSON",
+            async: false,
+            success:function (data) {
+                $.each(data,function (i,e) {
+                    deptNames.push(e.deptName);
+                })
+                console.info(deptNames)
+            }
+        });
+
+        $.ajax({
+            type: "get",
+            url: "data/sys/user.json",
+            dataType: "JSON",
+            async: false,
+            success:function (data) {
+                for(var i=0;i<deptNames.length;i++){
+                    pnums[i]=0;
+                    $.each(data,function (j,e) {
+                        if(e.dept.deptName==deptNames[i]){
+                            pnums[i]++;
+                        }
+                    })
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

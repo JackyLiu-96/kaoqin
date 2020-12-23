@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width,initial-scale=1.0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>系统管理</title>
+	<link href="../../css/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../css/plugins/bootstrap-table/src/bootstrap-table.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../css/plugins/jquery-treegrid/css/jquery.treegrid.css">
+	<link rel="stylesheet" href="../../css/plugins/jquery-layout/jquery.layout-latest.css">
+	<link href="../../css/plugins/font-awesome/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet">
+
+
+	<script src="../../js/plugins/jquery/jquery.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/src/bootstrap-table.js"></script>
+	<script src="../../js/plugins/bootstrap/bootstrap.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/src/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+	<script src="../../js/plugins/jquery-treegrid/js/jquery.treegrid.js"></script>
+	<script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+	<script src="../../js/myjs.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+	<div class="pane ui-layout-center">
+		<!--搜索
+            根表格-->
+
+		<form action="" class="form form-horizontal ">
+			<div class="form-group has-feedback">
+				<label for="dname" class="control-label col-sm-1">部门名称:</label>
+
+				<div class="col-md-2">
+					<input type="text" name="dname" id="dname" class="form-control" placeholder="请输入部门名称">
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+				</div>
+
+
+				<label for="dstatus" class="control-label col-sm-1">部门状态:</label>
+				<div class="col-md-2">
+					<select name="dstatus" id="dstatus" class="form-control">
+						<option value="0">所有</option>
+						<option value="10">正常</option>
+						<option value="20">停用</option>
+					</select>
+				</div>
+				<div  class="col-md-2">
+					<a class="btn btn-sm btn-rounded btn-primary" href="javascript:void(0);" onclick="searchs()"><i class="fa fa-search">搜索</i></a>
+					<a class="btn btn-sm btn-rounded btn-warning" href="javascript:void(0);" onclick="rezero()"><i class="fa fa fa-refresh">重置</i></a>
+				</div>
+
+			</div>
+			<div class="modal">
+				<div class="modal-dialog modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">
+							部门修改
+						</h4>
+					</div>
+					<div class="modal-body">
+						<form action="" class="form form-horizontal">
+							<div class="form-group has-feedback">
+								<label for="deptName" class="control-label col-sm-2">部门名称:</label>
+								<div class="col-sm-6">
+									<input type="text" name="deptName" id="deptName" class="form-control" disabled>
+									<span class="glyphicon glyphicon-user form-control-feedback"></span>
+								</div>
+							</div>
+							<div class="form-group has-feedback">
+								<label for="dsort" class="control-label col-sm-2">排序:</label>
+								<div class="col-sm-6">
+									<input type="text" name="dsort" id="dsort" class="form-control" >
+								</div>
+							</div>
+							<div class="form-group has-feedback">
+								<label for="dta" class="control-label col-sm-2">状态:</label>
+								<div class="col-sm-6">
+									<select name="dta" id="dta" class="form-control">
+
+									</select>
+								</div>
+							</div>
+							<div class="form-group has-feedback">
+								<label for="dctime" class="control-label col-sm-2">创建时间:</label>
+								<div class="col-sm-6">
+									<input type="text" name="dctime" id="dctime" class="form-control" >
+								</div>
+							</div>
+
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary">确认</button>
+						<button class="btn btn-danger">取消</button>
+
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<div id="reportTableDiv">
+			<table id="reportTable"></table>
+		</div>
+
+	</div>
+
+</div>
+
+<script src="../../js/sys/dept.js"></script>
+</body>
+
+</html>

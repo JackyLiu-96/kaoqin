@@ -1,0 +1,137 @@
+{
+  "total": 2,
+  "rows": [
+
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "ceo",
+      "postId": 1,
+      "postName": "董事长",
+      "postSort": "1",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "se",
+      "postId": 2,
+      "postName": "项目经理",
+      "postSort": "2",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "hr",
+      "postId": 3,
+      "postName": "人力资源",
+      "postSort": "3",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "user",
+      "postId": 4,
+      "postName": "普通员工",
+      "postSort": "4",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "user",
+      "postId": 5,
+      "postName": "普通员工",
+      "postSort": "4",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "user",
+      "postId": 6,
+      "postName": "普通员工",
+      "postSort": "4",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "user",
+      "postId": 7,
+      "postName": "普通员工",
+      "postSort": "4",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "user",
+      "postId": 8,
+      "postName": "普通员工",
+      "postSort": "4",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "user",
+      "postId": 9,
+      "postName": "普通员工",
+      "postSort": "4",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "postCode": "user",
+      "postId": 10,
+      "postName": "普通员工",
+      "postSort": "4",
+      "remark": "",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    }
+  ],
+  "code": 0
+}

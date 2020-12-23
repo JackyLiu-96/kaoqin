@@ -1,0 +1,46 @@
+{
+  "total": 2,
+  "rows": [
+
+    {
+      "createDateTimeStr": "2018-11-10 14:47:06",
+      "createTimeStr": "2018-11-10",
+      "flag": false,
+      "remark": "11111111",
+      "roleId": 13,
+      "roleKey": "管理员",
+      "roleName": "对对对",
+      "roleSort": "111",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "remark": "管理员",
+      "roleId": 1,
+      "roleKey": "管理员",
+      "roleName": "管理员",
+      "roleSort": "1",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    },
+    {
+      "createDateTimeStr": "2018-03-16 11:33:00",
+      "createTimeStr": "2018-03-16",
+      "flag": false,
+      "remark": "普通角色",
+      "roleId": 2,
+      "roleKey": "普通角色",
+      "roleName": "普通角色",
+      "roleSort": "2",
+      "status": 0,
+      "updateDateTimeStr": "",
+      "updateTimeStr": ""
+    }
+  ],
+  "code": 0
+}

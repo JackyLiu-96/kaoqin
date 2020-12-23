@@ -1,0 +1,62 @@
+[
+  {
+    "createBy": "admin",
+    "createTime": "2018-03-16 11:33:00",
+    "flag": false,
+    "params": {},
+    "postCode": "ceo",
+    "postId": 1,
+    "postName": "董事长",
+    "postSort": "1",
+    "remark": "",
+    "searchValue": null,
+    "status": "01",
+    "updateBy": null,
+    "updateTime": null
+  },
+  {
+    "createBy": "admin",
+    "createTime": "2018-03-16 11:33:00",
+    "flag": false,
+    "params": {},
+    "postCode": "se",
+    "postId": 2,
+    "postName": "项目经理",
+    "postSort": "2",
+    "remark": "",
+    "searchValue": null,
+    "status": "01",
+    "updateBy": null,
+    "updateTime": null
+  },
+  {
+    "createBy": "admin",
+    "createTime": "2018-03-16 11:33:00",
+    "flag": false,
+    "params": {},
+    "postCode": "hr",
+    "postId": 3,
+    "postName": "人力资源",
+    "postSort": "3",
+    "remark": "",
+    "searchValue": null,
+    "status": "02",
+    "updateBy": null,
+    "updateTime": null
+  },
+  {
+    "createBy": "admin",
+    "createTime": "2018-03-16 11:33:00",
+    "flag": false,
+    "params": {},
+    "postCode": "user",
+    "postId": 4,
+    "postName": "普通员工",
+    "postSort": "4",
+    "remark": "",
+    "searchValue": null,
+    "status": "01",
+    "updateBy": null,
+    "updateTime": null
+  }
+]
