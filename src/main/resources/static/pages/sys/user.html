@@ -92,56 +92,44 @@
 				<div class="modal-header">
 					<button class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">
-						用户修改
+						用户新增/修改
 					</h4>
 				</div>
 				<div class="modal-body">
 					<form action="" class="form form-horizontal">
-					<div class="form-group has-feedback">
-						<label for="uId" class="control-label col-sm-2">用户名ID:</label>
-						<div class="col-sm-6">
-							<input type="text" name="uId" id="uId" class="form-control" disabled>
-							<span class="glyphicon glyphicon-user form-control-feedback"></span>
-						</div>
-					</div>
+
 						<div class="form-group has-feedback">
-							<label for="lname" class="control-label col-sm-2">登录名称:</label>
+							<label for="name" class="control-label col-sm-2">用户名称:</label>
 							<div class="col-sm-6">
-								<input type="text" name="lname" id="lname" class="form-control" disabled>
+								<input type="text" name="name" id="name" class="form-control">
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="un" class="control-label col-sm-2">用户名称:</label>
+							<label for="merchant" class="control-label col-sm-2">供应商:</label>
 							<div class="col-sm-6">
-								<input type="text" name="un" id="un" class="form-control">
-							</div>
-						</div>
-						<div class="form-group has-feedback">
-							<label for="dept" class="control-label col-sm-2">部门:</label>
-							<div class="col-sm-6">
-								<select name="dept" id="dept" class="form-control">
+								<select name="merchant" id="merchant" class="form-control">
 
 								</select>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="email" class="control-label col-sm-2">邮箱:</label>
+							<label for="shift" class="control-label col-sm-2">班次:</label>
 							<div class="col-sm-6">
-								<input type="text" name="email" id="email" class="form-control">
+								<input type="text" name="shift" id="shift" class="form-control">
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="phone" class="control-label col-sm-2">手机:</label>
-							<div class="col-sm-6">
-								<input type="text" name="phone" id="phone" class="form-control">
-							</div>
-						</div>
-						<div class="form-group has-feedback">
-							<label for="sta" class="control-label col-sm-2">状态:</label>
-							<div class="col-sm-6">
-								<select name="sta" id="sta" class="form-control">
 
-								</select>
+							<label for="timeq" class="control-label col-sm-2">时间段:</label>
+							<div class="col-sm-6">
+								<input type="date" name="timeq" id="sdate" class="form-control" placeholder="开始日期">
+								<input type="date" name="timeq" id="edate" class="form-control" placeholder="结束日期">
+							</div>
+						</div>
+						<div class="form-group has-feedback">
+							<label for="workhour" class="control-label col-sm-2">工时:</label>
+							<div class="col-sm-6">
+								<input type="text" name="workhour" id="workhour" class="form-control">
 							</div>
 						</div>
 					</form>

@@ -144,6 +144,7 @@ function formatterOpt(value, row, index) {
     /* console.info(row)*/
     var actions = [];
     /*getVue();*/
+    actions.push("<a name='xinzeng' class='btn btn-danger btn-xs' onclick='insert()'><i class='fa fa-plus'></i>新增</a> ");
     actions.push("<a name='bianji' class='btn btn-success btn-xs' onclick='update(this)'><i class='fa fa-edit'></i>编辑</a> ");
     actions.push('<a class="btn btn-danger btn-xs btnRemove" href="javascript:void(0);"  ><i class="fa fa-remove"></i>删除</a> ');
     actions.push('<a class="btn btn-info btn-xs btnRefresh" href="javascript:void(0);" ><i class="fa fa-key"></i>重置</a>');
@@ -163,8 +164,67 @@ function zTreeOnClick(event, treeId, treeNode) {
     })
 };
 
-//编辑--模态框
+//编辑/新增--模态框
 var childs = [];
+function insert() {
+    $(".modal").modal("toggle")
+
+    var name = $("#name").val();
+    var merchant = $("#merchant").val();
+    var shift = $("#shift").val();
+    var startTime = $("#sdate").val();
+    var endTime = $("#edate").val();
+    var workhour = $("#workhour").val();
+
+    $.ajax({
+        url: "/kq/user/insertEmployee",
+        type: "post",
+        dataType: "json",
+        data: {
+            "name": name,
+            "merchant": merchant,
+            "shift": shift,
+            "startTime": startTime,
+            "endTime": endTime,
+            "workhour": workhour
+        },
+        success: function (res) {
+            if (res.code == 2000) {
+                //关闭对话框
+                $(".modal").modal("hide");
+                //清空文本框
+                $("#name").val("");
+                $("#merchant").val("");
+                $("#shift").val("");
+                $("#startTime").val("");
+                $("#endTime").val("");
+                $("#workhour").val("");
+
+                //刷新页面
+                window.location.href = "user.html";
+            }
+            alert(res.message);
+        }
+    });
+
+
+
+    $.ajax({
+        type: "get",
+        url: "../../data/sys/dept.json",
+        dataType: "JSON",
+        async: false,
+        success:function (data) {
+            $.each(data,function (i,e) {
+                var $option = $("<option>",{
+                    text:e.deptName
+                })
+                $option.appendTo($("#dept"));
+            })
+        }
+    });
+
+}
 function update(x) {
     $(".modal").modal("toggle")
     childs = x.parentNode.parentNode.childNodes;
