@@ -51,6 +51,7 @@
 					<span class="glyphicon glyphicon-earphone form-control-feedback"></span>
 				</div>
 				<div  class="col-md-2">
+					<a class="btn btn-sm btn-rounded btn-danger" href="javascript:void(0);" onclick="insert()"><i class="fa fa-plus">添加</i></a>
 					<a class="btn btn-sm btn-rounded btn-primary" href="javascript:void(0);" onclick="search1()"><i class="fa fa-search">搜索</i></a>
 					<a class="btn btn-sm btn-rounded btn-warning" href="javascript:void(0);" onclick="rezero()"><i class="fa fa fa-refresh">重置</i></a>
 				</div>
@@ -98,6 +99,12 @@
 				<div class="modal-body">
 					<form action="" class="form form-horizontal">
 
+						<div class="form-group has-feedback" style="display: none">
+							<label for="id" class="control-label col-sm-2">id:</label>
+							<div class="col-sm-6">
+								<input type="text" name="id" id="id" class="form-control">
+							</div>
+						</div>
 						<div class="form-group has-feedback">
 							<label for="name" class="control-label col-sm-2">用户名称:</label>
 							<div class="col-sm-6">
@@ -107,10 +114,10 @@
 						<div class="form-group has-feedback">
 							<label for="merchantName" class="control-label col-sm-2">供应商:</label>
 							<div class="col-sm-6">
-								<input type="text" name="merchantName" id="merchantName" class="form-control">
-<!--								<select name="merchant" id="merchant" class="form-control">-->
+<!--								<input type="text" name="merchantName" id="merchantName" class="form-control">-->
+								<select name="merchantName" id="merchantName" class="form-control">
 
-<!--								</select>-->
+								</select>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
@@ -123,7 +130,7 @@
 
 							<label for="timeq" class="control-label col-sm-2">时间段:</label>
 							<div class="col-sm-6">
-								<input type="date" name="timeq" id="sdate" class="form-control" placeholder="开始日期">
+								<input type="date" name="timeq" id="sdate" class="form-control" placeholder="开始日期">&nbsp;
 								<input type="date" name="timeq" id="edate" class="form-control" placeholder="结束日期">
 							</div>
 						</div>
@@ -136,8 +143,8 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button id="btn_confrim" class="btn btn-primary">确认</button>
-					<button class="btn btn-danger">取消</button>
+					<button id="btn_confirm" class="btn btn-primary">确认</button>
+					<button id="btn_cancel" class="btn btn-danger">取消</button>
 
 				</div>
 			</div>

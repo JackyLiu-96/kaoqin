@@ -1,9 +1,8 @@
 package com.hplus.kaoqin.entity;
 
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import com.hplus.kaoqin.util.DateUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -33,4 +32,8 @@ public class Employee implements Serializable {
     private Double workHour;//工时
     private String name;//名字
     private String shift;//班次
+    @TableField(value = "is_deleted")
+    @TableLogic
+    private Boolean deleted;
+
 }

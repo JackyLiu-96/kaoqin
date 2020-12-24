@@ -10,8 +10,8 @@
                     pagination: true,    //是否显示分页
                     sidePagination: "client", // 分页方式 client为客户端  server为服务器端
                     pageNumber: 1,//初始化加载第一页，默认第一页
-                    pageSize: 2,//每页的记录行数
-                    pageList: [1, 2, 3, 4],// 可供选择的每页行数
+                    pageSize: 10,//每页的记录行数
+                    pageList: [10, 15, 20, 25],// 可供选择的每页行数
                     showColumns: true,
                     columns: options.columns,
                     sortable: true,

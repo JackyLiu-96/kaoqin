@@ -24,7 +24,7 @@ import java.util.Map;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author jacky
@@ -42,43 +42,13 @@ public class UserController {
     private MerchantMapper merchantMapper;
 
     @PostMapping("/login")
-    public R login(@RequestParam String username,@RequestParam String password){
+    public R login(@RequestParam String username, @RequestParam String password) {
         User user = userService.findBynameAndPwd(username, MD5Utils.code(password));
-        if(user == null){
+        if (user == null) {
             return R.error().message("用户名或密码错误");
         }
-        return R.ok().data("user",user);
+        return R.ok().data("user", user);
     }
 
-
-    @PostMapping("/insertEmployee")
-    public R insertEmployee (@RequestParam(value = "merchantName") String merchantName,
-                             @RequestParam(value = "name") String name,
-                             @RequestParam(value = "shift") String shift,
-                             @RequestParam(value = "startTime") String startTime,
-                             @RequestParam(value = "endTime") String endTime,
-                             @RequestParam(value = "workHour") String workHour){
-        Employee employee = new Employee();
-        //查对应的供应商
-        Map<String, Object> map = new HashMap<>();
-        map.put("merchant_name",merchantName);
-        List<Merchant> merchants = merchantMapper.selectByMap(map);
-        if (merchants!=null && merchants.size()>0){
-            employee.setMerchantId(merchants.get(0).getId());
-        }
-        employee.setCreateTime(new Date());
-        employee.setMerchantName(merchantName);
-        employee.setStartTime(startTime);
-        employee.setEndTime(endTime);
-        employee.setWorkHour(Double.valueOf(workHour));
-        employee.setName(name);
-        employee.setShift(shift);
-        int flag =employeeService.insertEmployee(employee);
-        if (flag==1){
-            return R.ok().message("新增成功");
-        }else {
-            return R.error().message("新增失败");
-        }
-    }
 }
 

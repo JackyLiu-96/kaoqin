@@ -19,7 +19,6 @@ $(function () {
             "/kq/user/login",
             "username=" + uname + "&password=" + psw,
             function (data) {
-                console.log(data.code+"------"+data.data)
                 if (data.code == 20000) {
                     toastr.success("登录成功！")
                     window.location = "index.html"
