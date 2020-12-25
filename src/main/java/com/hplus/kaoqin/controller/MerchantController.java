@@ -21,7 +21,7 @@ public class MerchantController {
 
     @GetMapping("/list")
     public R list() {
-        List<Merchant> merchants = merchantService.getMerchantList();
+        List<Merchant> merchants = merchantService.list(null);
         return R.ok().data("merchants", merchants);
     }
 }

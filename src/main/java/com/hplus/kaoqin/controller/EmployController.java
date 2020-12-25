@@ -1,11 +1,15 @@
 package com.hplus.kaoqin.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hplus.kaoqin.common.vo.R;
 import com.hplus.kaoqin.entity.Employee;
 import com.hplus.kaoqin.entity.Merchant;
+import com.hplus.kaoqin.entity.Shift;
+import com.hplus.kaoqin.querry.EmployeeQuerry;
 import com.hplus.kaoqin.service.EmployeeService;
 import com.hplus.kaoqin.service.MerchantService;
+import com.hplus.kaoqin.service.ShiftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,31 +30,39 @@ public class EmployController {
     private EmployeeService employeeService;
     @Autowired
     private MerchantService merchantService;
+    @Autowired
+    private ShiftService shiftService;
 
     @PostMapping("/insertEmployee")
     public R insertEmployee(@RequestParam(value = "id") String id,
                             @RequestParam(value = "merchantName") String merchantName,
                             @RequestParam(value = "name") String name,
-                            @RequestParam(value = "shift") String shift,
+                            @RequestParam(value = "shiftName") String shiftName,
                             @RequestParam(value = "startTime") String startTime,
                             @RequestParam(value = "endTime") String endTime,
                             @RequestParam(value = "workHour") String workHour) {
-
         Employee employee = new Employee();
         //查对应的供应商
-        Map<String, Object> map = new HashMap<>();
-        map.put("merchant_name", merchantName);
-        List<Merchant> merchants = merchantService.selectByMap(map);
+        Map<String, Object> marchantMap = new HashMap<>();
+        marchantMap.put("merchant_name", merchantName);
+        List<Merchant> merchants = merchantService.selectByMap(marchantMap);
         if (merchants != null && merchants.size() > 0) {
             employee.setMerchantId(merchants.get(0).getId());
+        }
+        //查对应的班次
+        Map<String, Object> shiftMap = new HashMap<>();
+        shiftMap.put("shift_name", shiftName);
+        List<Shift> shifts = shiftService.selectByMap(shiftMap);
+        if (shifts != null && shifts.size() > 0) {
+            employee.setShiftId(shifts.get(0).getId());
         }
         employee.setCreateTime(new Date());
         employee.setMerchantName(merchantName);
         employee.setStartTime(startTime);
         employee.setEndTime(endTime);
-        employee.setWorkHour(Double.valueOf(workHour));
+        employee.setWorkHour(Double.parseDouble(workHour));
         employee.setName(name);
-        employee.setShift(shift);
+        employee.setShiftName(shiftName);
         employee.setDeleted(false);
         if (id == "") {
             int flag = employeeService.insertEmployee(employee);
@@ -71,18 +83,31 @@ public class EmployController {
 
     }
 
+    @GetMapping("/selectList")
+    public R selectList(@RequestParam(value = "id") String id,
+                        @RequestParam(value = "merchantName") String merchantName,
+                        @RequestParam(value = "name") String name,
+                        @RequestParam(value = "shiftName") String shiftName,
+                        @RequestParam(value = "startTime") String startTime,
+                        @RequestParam(value = "endTime") String endTime) {
+        QueryWrapper<Employee> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderByAsc("id");
+        EmployeeQuerry employeeQuerry = new EmployeeQuerry();
+        employeeQuerry.setId(id);
+        employeeQuerry.setName(name);
+        employeeQuerry.setMerchantName(merchantName);
+        employeeQuerry.setShiftName(shiftName);
+        employeeQuerry.setStartTime(startTime);
+        employeeQuerry.setEndTime(endTime);
+        List<Employee> employees = employeeService.selectQuery(queryWrapper, employeeQuerry);
+        return R.ok().data("employees", employees);
+    }
+
     @GetMapping("/list")
     public R list() {
         List<Employee> employees = employeeService.list(null);
         return R.ok().data("employees", employees);
     }
-
-//    @GetMapping(value = "{page}/{limit}")
-//    public R pageList(@PathVariable Long page, @PathVariable Long limit) {
-//        Page<Employee> pageParam = new Page<Employee>(page, limit);
-//        Map<String, Object> map = employeeService.pageListWeb(pageParam);
-//        return R.ok().data(map);
-//    }
 
     @GetMapping(value = "{id}")
     public R findById(@PathVariable(name = "id", required = true) String id) {

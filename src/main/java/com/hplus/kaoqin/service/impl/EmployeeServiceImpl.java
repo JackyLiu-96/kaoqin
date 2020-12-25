@@ -6,13 +6,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hplus.kaoqin.entity.Employee;
 import com.hplus.kaoqin.mapper.EmployeeMapper;
+import com.hplus.kaoqin.querry.EmployeeQuerry;
 import com.hplus.kaoqin.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
+import org.springframework.util.StringUtils;
 import java.util.List;
-import java.util.Map;
+
 
 @Service
 public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> implements EmployeeService {
@@ -31,32 +31,34 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         return employeeMapper.updateById(employee);
     }
 
-//    @Override
-//    public Map<String, Object> pageListWeb(Page<Employee> pageParam) {
-//
-//        QueryWrapper<Employee> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.orderByAsc("sort");
-//
-//        baseMapper.selectPage(pageParam, queryWrapper);
-//
-//        List<Employee> records = pageParam.getRecords();
-//        long current = pageParam.getCurrent();
-//        long pages = pageParam.getPages();
-//        long size = pageParam.getSize();
-//        long total = pageParam.getTotal();
-//        boolean hasNext = pageParam.hasNext();
-//        boolean hasPrevious = pageParam.hasPrevious();
-//
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        map.put("items", records);
-//        map.put("current", current);
-//        map.put("pages", pages);
-//        map.put("size", size);
-//        map.put("total", total);
-//        map.put("hasNext", hasNext);
-//        map.put("hasPrevious", hasPrevious);
-//
-//        return map;
-//    }
+    @Override
+    public List<Employee> selectQuery(QueryWrapper<Employee> queryWrapper, EmployeeQuerry employeeQuerry) {
+        if (!StringUtils.isEmpty(employeeQuerry.getId())) {
+            queryWrapper.eq("id", employeeQuerry.getId());
+        }
+
+        if (!StringUtils.isEmpty(employeeQuerry.getName())) {
+            queryWrapper.like("name", employeeQuerry.getName());
+        }
+
+        if (!StringUtils.isEmpty(employeeQuerry.getMerchantName()) && !"请选择".equals(employeeQuerry.getMerchantName())) {
+            queryWrapper.eq("merchant_name", employeeQuerry.getMerchantName());
+        }
+
+        if (!StringUtils.isEmpty(employeeQuerry.getShiftName())  && !"请选择".equals(employeeQuerry.getShiftName())) {
+            queryWrapper.eq("shift_name", employeeQuerry.getShiftName());
+        }
+
+        if (!StringUtils.isEmpty(employeeQuerry.getStartTime())) {
+            queryWrapper.ge("start_Time", employeeQuerry.getStartTime());
+        }
+
+        if (!StringUtils.isEmpty(employeeQuerry.getEndTime())) {
+            queryWrapper.le("end_Time", employeeQuerry.getEndTime());
+        }
+
+        return baseMapper.selectList(queryWrapper);
+    }
+
 
 }

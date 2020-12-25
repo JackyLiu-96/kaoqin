@@ -20,6 +20,7 @@
 		<link href="../../css/plugins/animate/animate.css" rel="stylesheet">
 		<link href="../../css/style.css" rel="stylesheet">
 		<link href="../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+		<link href="../../css/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet">
 
 		<script type="text/javascript" src="../../js/plugins/jquery/jquery.min.js"></script>
 		<script src="../../js/plugins/jquery-layout/jquery.layout-latest.js"></script>
@@ -29,6 +30,8 @@
 		<script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 		<script src="../../js/plugins/toastr/toastr.min.js"></script>
 		<script src="../../js/myjs.js"></script>
+		<script src="../../js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+		<script src="../../js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
 	</head>
 	<body>
 
@@ -39,41 +42,46 @@
 
 		<form action="" class="form form-horizontal ">
 			<div class="form-group has-feedback">
-				<label for="uname" class="control-label col-sm-1">登录名称:</label>
-
-				<div class="col-md-4">
-					<input type="text" name="uname" id="uname" class="form-control" placeholder="请输入登录名称">
+				<label for="uid" class="control-label col-sm-1">员工编号:</label>
+				<div class="col-md-3">
+					<input type="text" name="uid" id="uid" class="form-control" placeholder="员工编号">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
-				<label for="uphone" class="control-label col-sm-1">手机号码:</label>
-				<div class="col-md-4">
-					<input type="text" name="uphone" id="uphone" class="form-control" placeholder="手机号码">
-					<span class="glyphicon glyphicon-earphone form-control-feedback"></span>
+
+				<label for="uname" class="control-label col-sm-1">员工姓名:</label>
+				<div class="col-md-3">
+					<input type="text" name="uname" id="uname" class="form-control" placeholder="员工姓名">
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
-				<div  class="col-md-2">
-					<a class="btn btn-sm btn-rounded btn-danger" href="javascript:void(0);" onclick="insert()"><i class="fa fa-plus">添加</i></a>
-					<a class="btn btn-sm btn-rounded btn-primary" href="javascript:void(0);" onclick="search1()"><i class="fa fa-search">搜索</i></a>
-					<a class="btn btn-sm btn-rounded btn-warning" href="javascript:void(0);" onclick="rezero()"><i class="fa fa fa-refresh">重置</i></a>
+
+				<label for="ushiftName" class="control-label col-sm-1">班次:</label>
+				<div class="col-md-3">
+					<select name="ushiftName" id="ushiftName" class="form-control">
+						<option>请选择</option>
+					</select>
 				</div>
 
 			</div>
 			<div class="form-group ">
-				<label for="status" class="control-label col-sm-1">用户状态:</label>
-				<div class="col-md-4">
-					<select name="status" id="status" class="form-control">
-						<option value="0">所有</option>
-						<option value="01">在职</option>
-						<option value="02">离职</option>
+				<label for="umerchantName" class="control-label col-sm-1">供应商名称:</label>
+				<div class="col-md-3">
+					<select name="umerchantName" id="umerchantName" class="form-control">
+						<option>请选择</option>
 					</select>
 				</div>
 
 				<label for="cdate" class="control-label col-sm-1">创建时间:</label>
-				<div class="col-md-4" style="display: flex">
-					<input type="date" name="cdate" id="cdate" class="form-control" placeholder="开始日期">
+				<div class="col-md-3" style="display: flex">
+					<input type="text" name="cdate" id="usdate" class="datetimepicker" placeholder="开始日期">
 					<span class="input-group-addon">~</span>
-					<input type="date" name="cdate" id="cdate1" class="form-control" placeholder="结束日期">
+					<input type="text" name="cdate" id="uedate" class="datetimepicker" placeholder="结束日期">
 				</div>
 
+				<div  class="col-md-4">
+					<a class="btn btn-sm btn-rounded btn-danger" href="javascript:void(0);" onclick="insert()"><i class="fa fa-plus">添加</i></a>
+					<a class="btn btn-sm btn-rounded btn-primary" href="javascript:void(0);" onclick="search1()"><i class="fa fa-search">搜索</i></a>
+					<a class="btn btn-sm btn-rounded btn-warning" href="javascript:void(0);" onclick="rezero()"><i class="fa fa fa-refresh">重置</i></a>
+				</div>
 			</div>
 		</form>
 
@@ -106,7 +114,7 @@
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="name" class="control-label col-sm-2">用户名称:</label>
+							<label for="name" class="control-label col-sm-2">员工姓名:</label>
 							<div class="col-sm-6">
 								<input type="text" name="name" id="name" class="form-control">
 							</div>
@@ -116,25 +124,29 @@
 							<div class="col-sm-6">
 <!--								<input type="text" name="merchantName" id="merchantName" class="form-control">-->
 								<select name="merchantName" id="merchantName" class="form-control">
-
+									<option>请选择</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="shift" class="control-label col-sm-2">班次:</label>
+							<label for="shiftName" class="control-label col-sm-2">班次:</label>
 							<div class="col-sm-6">
-								<input type="text" name="shift" id="shift" class="form-control">
+								<select name="shiftName" id="shiftName" class="form-control">
+									<option>请选择</option>
+								</select>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
 
 							<label for="timeq" class="control-label col-sm-2">时间段:</label>
-							<div class="col-sm-6">
-								<input type="date" name="timeq" id="sdate" class="form-control" placeholder="开始日期">&nbsp;
-								<input type="date" name="timeq" id="edate" class="form-control" placeholder="结束日期">
+
+								<div class="col-md-10" style="display: flex">
+									<input type="text" name="timeq" id="sdate" class="datetimepicker" placeholder="开始日期">&nbsp;<span class="control-label col-sm-2">至</span>
+									<input type="text"  name="timeq" id="edate" class="datetimepicker" placeholder="结束日期">
+
 							</div>
 						</div>
-						<div class="form-group has-feedback">
+						<div class="form-group has-feedback" style="display: none">
 							<label for="workHour" class="control-label col-sm-2">工时:</label>
 							<div class="col-sm-6">
 								<input type="text" name="workHour" id="workHour" class="form-control">

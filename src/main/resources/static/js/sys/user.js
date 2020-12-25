@@ -5,8 +5,12 @@
 //入口
 $(function () {
     $("#app").css("height", $(window).height());
-    $('#app').layout({});
+    // $('#app').layout({});
     // ztree();
+    $('.datetimepicker').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii:ss',
+        autoclose: true //选择后自动关闭
+    });
     btable();
 
     $.ajax({
@@ -20,6 +24,35 @@ $(function () {
                     text: e.merchantName
                 })
                 $option.appendTo($("#merchantName"));
+            })
+
+            $.each(data.data.merchants, function (i, e) {
+                var $option = $("<option>", {
+                    text: e.merchantName
+                })
+                $option.appendTo($("#umerchantName"));
+            })
+        }
+    });
+
+    $.ajax({
+        type: "get",
+        url: "/kq/shift/list",
+        dataType: "JSON",
+        async: false,
+        success: function (data) {
+            $.each(data.data.shifts, function (i, e) {
+                var $option = $("<option>", {
+                    text: e.shiftName
+                })
+                $option.appendTo($("#shiftName"));
+            })
+
+            $.each(data.data.shifts, function (i, e) {
+                var $option = $("<option>", {
+                    text: e.shiftName
+                })
+                $option.appendTo($("#ushiftName"));
             })
         }
     });
@@ -74,30 +107,37 @@ function btable() {
                     {
                         field: 'id',
                         title: '编号',
+                        align: 'center',
                         sortable: true
                     },{
                         field: 'name',
                         title: '员工姓名',
+                        align: 'center',
                         sortable: true
                     }, {
                         field: 'merchantName',
                         title: '供应商名称',
+                        align: 'center',
                         sortable: true
                     }, {
-                        field: 'shift',
+                        field: 'shiftName',
                         title: '班次',
+                        align: 'center',
                         sortable: true
                     }, {
                         field: 'startTime',
                         title: '开始时间',
+                        align: 'center',
                         sortable: true
                     }, {
                         field: 'endTime',
                         title: '结束时间',
+                        align: 'center',
                         sortable: true
                     }, {
                         field: 'workHour',
                         title: '工时',
+                        align: 'center',
                         sortable: true
                     }, {
                         title: '操作',
@@ -152,6 +192,7 @@ function btable() {
 //     }
 // }
 
+
 //状态格式化
 function formatterOpt(value, row, index) {
     /* console.info(row)*/
@@ -175,18 +216,27 @@ function formatterOpt(value, row, index) {
 //     })
 // };
 
+//置空
+function rezero() {
+    $("#uid").val("");
+    $("#uname").val("");
+    $("#umerchantName").val("请选择");
+    $("#ushiftName").val("请选择");
+    $("#usdate").val("");
+    $("#uedate").val("");
+}
+
 //编辑/新增--模态框
 var childs = [];
 
 function insert() {
-    $(".modal").modal("toggle")
+    $(".modal").modal("toggle");
     $("#id").val("");
     $("#name").val("");
-    $("#merchantName").val("");
-    $("#shift").val("");
-    $("#startTime").val("");
-    $("#endTime").val("");
-    $("#workHour").val("");
+    $("#merchantName").val("请选择");
+    $("#shiftName").val("请选择");
+    $("#sdate").val("");
+    $("#edate").val("");
 }
 
 $('#btn_cancel').click(function () {
@@ -196,13 +246,38 @@ $('#btn_cancel').click(function () {
 $('#btn_confirm').click(function () {
     $('[name="published"]').val(false);
     $('#blog-form').submit();
+
+    //校验
+    if($("#name").val() == ""){
+        toastr.error("请填写员工名称");
+    }
+
+    if("请选择" == $("#merchantName").val()){
+        toastr.error("请选择供应商名称");
+    }
+
+    if("请选择" == $("#shiftName").val()){
+        toastr.error("请选择班次");
+    }
+    if($("#sdate").val() == ""){
+        toastr.error("请填写开始时间");
+    }
+    if($("#edate").val() == ""){
+        toastr.error("请填写结束时间");
+    }
     var id = $("#id").val();
     var name = $("#name").val();
     var merchantName = $("#merchantName").val();
-    var shift = $("#shift").val();
+    var shiftName = $("#shiftName").val();
     var startTime = $("#sdate").val();
     var endTime = $("#edate").val();
-    var workHour = $("#workHour").val();
+    if (new Date(startTime).getTime() > new Date(endTime).getTime()) {
+        toastr.error("开始时间必须小于结束时间");
+        return;
+    }
+    var mss = (new Date(endTime).getTime()-new Date(startTime).getTime())/3600000;
+    console.info(mss.toFixed(2));
+    var workHour = mss.toFixed(2);
 
     $.ajax({
         url: "/kq/employee/insertEmployee",
@@ -212,7 +287,7 @@ $('#btn_confirm').click(function () {
             "id":id,
             "name": name,
             "merchantName": merchantName,
-            "shift": shift,
+            "shiftName": shiftName,
             "startTime": startTime,
             "endTime": endTime,
             "workHour": workHour
@@ -225,14 +300,16 @@ $('#btn_confirm').click(function () {
                 //清空文本框
                 $("#name").val("");
                 $("#merchantName").val("");
-                $("#shift").val("");
+                $("#shiftName").val("");
                 $("#sdate").val("");
                 $("#edate").val("");
-                $("#workHour").val("");
                 //刷新页面
-                window.location.href = "user.html";
+                toastr.info(res.message);
+                setTimeout("window.location.reload()",1000);
+            } else {
+                toastr.info(res.message);
             }
-            alert(res.message)
+
         }
     });
 
@@ -251,8 +328,10 @@ function del(obj) {
         async: false,
         success: function (data) {
             if(data.code == 20000){
-                alert(data.message)
-                window.location.href = "user.html";
+                 toastr.info(data.message);
+                 setTimeout("window.location.reload()",1000);
+            } else {
+                toastr.info(data.message);
             }
 
         }
@@ -276,10 +355,9 @@ function update(x) {
                 $("#id").val(e.id);
                 $("#name").val(e.name);
                 $("#merchantName").val(e.merchantName);
-                $("#shift").val(e.shift);
+                $("#shiftName").val(e.shiftName);
                 $("#sdate").val(e.startTime);
                 $("#edate").val(e.endTime);
-                $("#workHour").val(e.workHour);
             }
 
         }
@@ -299,53 +377,83 @@ function update(x) {
 
 //搜索
 function search1() {
-    var d = [];
-    $.getJSON("../../data/sys/user.json", function (data) {
-
-        var uname = $("#uname").val().trim();
-        var uphone = $("#uphone").val().trim();
-        var status = $("#status").val();
-        var startTime = $("#cdate").val();
-        var endTime = $("#cdate1").val();
-        /* var sdate = new Date(startTime).getTime();
-         var edate = new Date(endTime).getTime();*/
-        if (new Date(startTime).getTime() > new Date(endTime).getTime()) {
-            toastr.error("开始时间必须小于结束时间");
-        }
-
-        //搜索具体实现
-        $.each(data, function (i, e) {
-            if ((e.loginName).includes(uname) && (e.phonenumber).includes(uphone) && (e.status).includes(status) && (startTime == "") && (endTime == "")) {
-                d.push(e);
-            } else if ((e.loginName).includes(uname) && (e.phonenumber).includes(uphone) && (e.status).includes(status) && (new Date(startTime).getTime() != "") && (endTime == "")) {
-                if (new Date(startTime).getTime() < new Date(e.createTime).getTime()) {
-                    d.push(e);
-                }
-            } else if ((e.loginName).includes(uname) && (e.phonenumber).includes(uphone) && (e.status).includes(status) && (startTime == "") && (new Date(endTime).getTime() !== "")) {
-                if (new Date(endTime).getTime() > new Date(e.createTime).getTime()) {
-                    d.push(e);
-                }
-            } else if ((e.loginName).includes(uname) && (e.phonenumber).includes(uphone) && (e.status).includes(status) && (new Date(startTime).getTime() != "") && (new Date(endTime).getTime() != "")) {
-                if (new Date(startTime).getTime() < new Date(e.createTime).getTime() && new Date(endTime).getTime() > new Date(e.createTime).getTime()) {
-                    d.push(e);
-                }
+    var id = $("#uid").val().trim();
+    var name = $("#uname").val().trim();
+    var shiftName = $("#ushiftName").val();
+    var merchantName = $("#umerchantName").val();
+    var startTime = $("#usdate").val();
+    var endTime = $("#uedate").val();
+    /* var sdate = new Date(startTime).getTime();
+     var edate = new Date(endTime).getTime();*/
+    if (new Date(startTime).getTime() > new Date(endTime).getTime()) {
+        toastr.error("开始时间必须小于结束时间");
+    }
+    $.ajax({
+        url: "/kq/employee/selectList",
+        type: "get",
+        dataType: "json",
+        data: {
+            "id": id,
+            "name": name,
+            "merchantName": merchantName,
+            "shiftName": shiftName,
+            "startTime": startTime,
+            "endTime": endTime
+        },
+        success: function (data) {
+            var options = {
+                data: data.employees,
+                id: "id",
+                modalName: "员工",
+                columns: [
+                    {
+                        field: 'id',
+                        title: '编号',
+                        align: 'center',
+                        sortable: true
+                    }, {
+                        field: 'name',
+                        title: '员工姓名',
+                        align: 'center',
+                        sortable: true
+                    }, {
+                        field: 'merchantName',
+                        title: '供应商名称',
+                        align: 'center',
+                        sortable: true
+                    }, {
+                        field: 'shiftName',
+                        title: '班次',
+                        align: 'center',
+                        sortable: true
+                    }, {
+                        field: 'startTime',
+                        title: '开始时间',
+                        align: 'center',
+                        sortable: true
+                    }, {
+                        field: 'endTime',
+                        title: '结束时间',
+                        align: 'center',
+                        sortable: true
+                    }, {
+                        field: 'workHour',
+                        title: '工时',
+                        align: 'center',
+                        sortable: true
+                    }, {
+                        title: '操作',
+                        align: 'center',
+                        formatter: formatterOpt
+                    }
+                ]
             }
-
-        })
-
-        $("#reportTable").bootstrapTable("load", d);
+            $.mytable.initTable(options);
+            $("#reportTable").bootstrapTable("load", data.data.employees);
+        }
     })
 
 }
 
-//置空
-function rezero() {
-    $("#id").val("");
-    $("#name").val("");
-    $("#merchantName").val("");
-    $("#shift").val("");
-    $("#sdate").val("");
-    $("#edate").val("");
-    $("#workHour").val("");
-}
+
 

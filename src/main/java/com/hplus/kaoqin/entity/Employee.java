@@ -31,7 +31,8 @@ public class Employee implements Serializable {
     private String endTime;//结束时间
     private Double workHour;//工时
     private String name;//名字
-    private String shift;//班次
+    private String shiftId;//班次id
+    private String shiftName;//班次
     @TableField(value = "is_deleted")
     @TableLogic
     private Boolean deleted;
