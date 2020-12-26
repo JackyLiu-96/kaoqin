@@ -4,14 +4,13 @@
 //入口
 $(function () {
     $.ajax({
-        url:"data/sys/menu.json",
+        url:"/kq/menu/list",
         dataType:"JSON",
         success:function (data) {
-            var trees = getTree(data);
-            /*console.info(trees)*/
+            var trees = getTree(data.data.menus);
             $.each(trees,function (i,e) {
                 var $lis = $("<li>",{
-                    html:" <a href='#'><i class='fa fa-cutlery'></i><span class='nav-label'>"+e.menuName+"</span><span class='fa arrow'></span></a>"
+                    html:" <a href='#'><i class='fa fa-cutlery'></i><span class='nav-label'>"+e.menuName+"</span></a>"
                 })
                 $lis.appendTo($("#side-menu"));
                 var $ul = $("<ul>",{
@@ -46,8 +45,9 @@ $(function () {
 function getTree(data) {
     var trees= data.filter(function (e) {
         var childs = data.filter(function (m) {
-            return e.menuId==m.parentId;
+            return e.id==m.parentId;
         })
+        console.log(childs.length+"===")
         if(childs.length!=0){
             e.children=childs;
         }
