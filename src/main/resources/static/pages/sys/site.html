@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/plugins/jquery-layout/jquery.layout-latest.css">
+		<link rel="stylesheet" href="../../css/plugins/jquery-ztree/3.5/css/metro/zTreeStyle.css">
+
+		<link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/plugins/bootstrap-table/src/bootstrap-table.css">
+		<link href="../../css/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/plugins/font-awesome/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="../../css/plugins/animate/animate.css" rel="stylesheet">
+		<link href="../../css/style.css" rel="stylesheet">
+		<link href="../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+		<!--<link href="css/plugins/font-awesome/font-awesome.css?v=4.4.0" rel="stylesheet">-->
+		<link href="../../css/plugins/animate/animate.css" rel="stylesheet">
+		<link href="../../css/style.css" rel="stylesheet">
+		<link href="../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+		<script type="text/javascript" src="../../js/plugins/jquery/jquery.min.js"></script>
+		<script src="../../js/plugins/jquery-layout/jquery.layout-latest.js"></script>
+		<script src="../../js/plugins/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js"></script>
+		<script src="../../js/plugins/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/plugins/bootstrap-table/src/bootstrap-table.js"></script>
+		<script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+		<script src="../../js/plugins/toastr/toastr.min.js"></script>
+		<script src="../../js/myjs.js"></script>
+	</head>
+<body>
+	<div id="app">
+    <div class="pane ui-layout-center">
+		<form action="" class="form form-horizontal ">
+			<div class="form-group has-feedback">
+				<label for="sid" class="control-label col-sm-1">场地编号:</label>
+
+				<div class="col-md-2">
+					<input type="text" name="sid" id="sid" class="form-control" placeholder="请输入场地编号">
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+				</div>
+				<label for="sname" class="control-label col-sm-1">场地名称:</label>
+				<div class="col-md-2">
+					<input type="text" name="sname" id="sname" class="form-control" placeholder="请输入场地名称">
+					<span class="glyphicon glyphicon-font form-control-feedback"></span>
+				</div>
+
+				<label for="sstatus" class="control-label col-sm-1">场地状态:</label>
+				<div class="col-md-2">
+					<select name="sstatus" id="sstatus" class="form-control">
+						<option value="0">所有</option>
+						<option value="1">启用</option>
+						<option value="2">停用</option>
+					</select>
+				</div>
+				<div  class="col-md-3">
+					<a class="btn btn-sm btn-rounded btn-danger" href="javascript:void(0);" onclick="insert()"><i class="fa fa-plus">新增</i></a>
+					<a class="btn btn-sm btn-rounded btn-primary" href="javascript:void(0);" onclick="search2()"><i class="fa fa-search">搜索</i></a>
+					<a class="btn btn-sm btn-rounded btn-warning" href="javascript:void(0);" onclick="rezero()"><i class="fa fa fa-refresh">重置</i></a>
+				</div>
+
+			</div>
+		</form>
+		<div id="reportTableDiv">
+			<table id="reportTable"></table>
+		</div>
+
+    </div>
+		<div class="modal">
+			<div class="modal-dialog modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">
+						场地新增/修改
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form action="" class="form form-horizontal">
+
+						<div class="form-group has-feedback" style="display: none">
+							<label for="id" class="control-label col-sm-2">id:</label>
+							<div class="col-sm-6">
+								<input type="text" name="id" id="id" class="form-control">
+							</div>
+						</div>
+						<div class="form-group has-feedback">
+							<label for="siteName" class="control-label col-sm-2">场地名称:</label>
+							<div class="col-sm-6">
+								<input type="text" name="siteName" id="siteName" class="form-control">
+							</div>
+						</div>
+						<div class="form-group has-feedback">
+							<label for="siteStatus" class="control-label col-sm-2">状态:</label>
+							<div class="col-sm-6">
+								<select name="siteStatus" id="siteStatus" class="form-control">
+									<option>请选择</option>
+									<option value="1">启用</option>
+									<option value="2">停用</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button id="btn_confirm" class="btn btn-primary">确认</button>
+					<button id="btn_cancel" class="btn btn-danger">取消</button>
+
+				</div>
+			</div>
+		</div>
+</div>
+
+	<script src="../../js/sys/site.js"></script>
+	</body>
+</html>

@@ -64,7 +64,7 @@ function jump(data) {
         class:"J_iframe",
         width:"100%",
         height:"100%",
-        src:data.url+"?v=4.0",
+        src:data.url,
         frameborder:"0"
     });
     $iframe.appendTo($("#content-main"));
