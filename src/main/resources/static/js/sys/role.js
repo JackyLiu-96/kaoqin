@@ -127,7 +127,6 @@ function search2() {
         //表格加载
         $("#reportTable").bootstrapTable("load",d);
     })
-
 }
 
 //置空

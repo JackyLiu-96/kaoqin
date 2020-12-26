@@ -1,7 +1,9 @@
 package com.hplus.kaoqin.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.hplus.kaoqin.entity.Merchant;
+import com.hplus.kaoqin.querry.MerchantQuery;
 
 import java.util.List;
 import java.util.Map;
@@ -19,4 +21,12 @@ public interface MerchantService  extends IService<Merchant> {
      */
     List<Merchant> selectByMap(Map map);
 
+    int insertMerchant(Merchant merchant);
+
+    int updateMerchantById(Merchant merchant);
+
+    /**
+     * 条件查询
+     */
+    List<Merchant> selectCondition(QueryWrapper<Merchant> queryWrapper, MerchantQuery merchantQuery);
 }

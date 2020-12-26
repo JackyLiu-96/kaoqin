@@ -13,6 +13,7 @@ import com.hplus.kaoqin.service.ShiftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -80,7 +81,6 @@ public class EmployController {
                 return R.error().message("修改失败");
             }
         }
-
     }
 
     @GetMapping("/selectList")
@@ -125,4 +125,14 @@ public class EmployController {
             return R.error().message("删除失败");
         }
     }
+
+//    @PostMapping("/test")
+//    public R test1(){
+//        String a ="48.5";
+//
+//    }
+public static void main(String[] args) {
+    String a ="48.5";
+    System.out.println(Double.parseDouble(a));
+}
 }

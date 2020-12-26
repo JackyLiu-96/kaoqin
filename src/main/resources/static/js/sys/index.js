@@ -22,7 +22,7 @@ $(function () {
                     var $a = $("<a>",{
                         class:"J_menuItem",
                         text:m.menuName
-                    })
+                    });
 
                     $a.click(function () {       //a标签设点击事件:跳转
                         jump(m)

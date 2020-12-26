@@ -3,11 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-
-
 		<link rel="stylesheet" href="../../css/plugins/jquery-layout/jquery.layout-latest.css">
 		<link rel="stylesheet" href="../../css/plugins/jquery-ztree/3.5/css/metro/zTreeStyle.css">
-
 		<link rel="stylesheet" href="../../css/plugins/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="../../css/plugins/bootstrap-table/src/bootstrap-table.css">
 		<link href="../../css/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -42,39 +39,48 @@
 
 		<form action="" class="form form-horizontal ">
 			<div class="form-group has-feedback">
-				<label for="uid" class="control-label col-sm-1">员工编号:</label>
+				<label for="uid" class="control-label col-sm-1">供应商编号:</label>
 				<div class="col-md-3">
-					<input type="text" name="uid" id="uid" class="form-control" placeholder="员工编号">
+					<input type="text" name="uid" id="uid" class="form-control" placeholder="供应商编号">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 
-				<label for="uname" class="control-label col-sm-1">员工姓名:</label>
+				<label for="umerchantName" class="control-label col-sm-1">供应商名称:</label>
 				<div class="col-md-3">
-					<input type="text" name="uname" id="uname" class="form-control" placeholder="员工姓名">
+					<input type="text" name="umerchantName" id="umerchantName" class="form-control" placeholder="供应商名称">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 
-				<label for="ushiftName" class="control-label col-sm-1">班次:</label>
+				<label for="uroleName" class="control-label col-sm-1">角色:</label>
 				<div class="col-md-3">
-					<select name="ushiftName" id="ushiftName" class="form-control">
+					<select name="uroleName" id="uroleName" class="form-control">
 						<option>请选择</option>
 					</select>
 				</div>
 
 			</div>
-			<div class="form-group ">
-				<label for="umerchantName" class="control-label col-sm-1">供应商名称:</label>
-				<div class="col-md-3">
-					<select name="umerchantName" id="umerchantName" class="form-control">
+				<div class="form-group ">
+				<label for="ulevel" class="control-label col-sm-1">等级:</label>
+					<div class="col-md-3">
+					<select name="ulevel" id="ulevel" class="form-control">
 						<option>请选择</option>
+						<option>A</option>
+						<option>B</option>
+						<option>C</option>
+						<option>D</option>
 					</select>
-				</div>
-				<label for="cdate" class="control-label col-sm-1">创建时间:</label>
-				<div class="col-md-4" style="display: flex">
-					<input type="text" name="cdate" id="usdate" class="datetimepicker" placeholder="开始日期">
-					<span class="input-group-addon">~</span>
-					<input type="text" name="cdate" id="uedate" class="datetimepicker" placeholder="结束日期">
-				</div>
+					</div>
+					<label for="uphone" class="control-label col-sm-1">手机号码:</label>
+					<div class="col-md-3">
+						<input type="text" name="uphone" id="uphone" class="form-control" placeholder="手机号码">
+						<span class="glyphicon glyphicon-user form-control-feedback"></span>
+					</div>
+<!--				<label for="cdate" class="control-label col-sm-1">角色名称:</label>-->
+<!--				<div class="col-md-4" style="display: flex">-->
+<!--					<input type="text" name="cdate" id="usdate" class="datetimepicker" placeholder="开始日期">-->
+<!--					<span class="input-group-addon">~</span>-->
+<!--					<input type="text" name="cdate" id="uedate" class="datetimepicker" placeholder="结束日期">-->
+<!--				</div>-->
 
 				<div  class="col-md-3">
 					<a class="btn btn-sm btn-rounded btn-danger" href="javascript:void(0);" onclick="insert()"><i class="fa fa-plus">添加</i></a>
@@ -100,7 +106,7 @@
 				<div class="modal-header">
 					<button class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">
-						用户新增/修改
+						供应商新增/修改
 					</h4>
 				</div>
 				<div class="modal-body">
@@ -113,44 +119,54 @@
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="name" class="control-label col-sm-2">员工姓名:</label>
+							<label for="merchantName" class="control-label col-sm-2">供应商名称:</label>
 							<div class="col-sm-6">
-								<input type="text" name="name" id="name" class="form-control">
+								<input type="text" name="merchantName" id="merchantName" class="form-control">
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="merchantName" class="control-label col-sm-2">供应商:</label>
+							<label for="roleName" class="control-label col-sm-2">角色:</label>
 							<div class="col-sm-6">
 <!--								<input type="text" name="merchantName" id="merchantName" class="form-control">-->
-								<select name="merchantName" id="merchantName" class="form-control">
+								<select name="roleName" id="roleName" class="form-control">
 									<option>请选择</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label for="shiftName" class="control-label col-sm-2">班次:</label>
+							<label for="level" class="control-label col-sm-2">等级:</label>
 							<div class="col-sm-6">
-								<select name="shiftName" id="shiftName" class="form-control">
+								<select name="level" id="level" class="form-control">
 									<option>请选择</option>
+									<option>A</option>
+									<option>B</option>
+									<option>C</option>
+									<option>D</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-
-							<label for="timeq" class="control-label col-sm-2">时间段:</label>
-
-								<div class="col-md-10" style="display: flex">
-									<input type="text" name="timeq" id="sdate" class="datetimepicker" placeholder="开始日期">&nbsp;<span class="control-label col-sm-2">至</span>
-									<input type="text"  name="timeq" id="edate" class="datetimepicker" placeholder="结束日期">
-
-							</div>
-						</div>
-						<div class="form-group has-feedback" style="display: none">
-							<label for="workHour" class="control-label col-sm-2">工时:</label>
+							<label for="phone" class="control-label col-sm-2">手机号码:</label>
 							<div class="col-sm-6">
-								<input type="text" name="workHour" id="workHour" class="form-control">
+								<input type="text" name="phone" id="phone" class="form-control">
 							</div>
 						</div>
+<!--						<div class="form-group has-feedback">-->
+
+<!--							<label for="timeq" class="control-label col-sm-2">时间段:</label>-->
+
+<!--								<div class="col-md-10" style="display: flex">-->
+<!--									<input type="text" name="timeq" id="sdate" class="datetimepicker" placeholder="开始日期">&nbsp;<span class="control-label col-sm-2">至</span>-->
+<!--									<input type="text"  name="timeq" id="edate" class="datetimepicker" placeholder="结束日期">-->
+
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="form-group has-feedback" style="display: none">-->
+<!--							<label for="workHour" class="control-label col-sm-2">工时:</label>-->
+<!--							<div class="col-sm-6">-->
+<!--								<input type="text" name="workHour" id="workHour" class="form-control">-->
+<!--							</div>-->
+<!--						</div>-->
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -162,7 +178,7 @@
 		</div>
 </div>
 
-	<script src="../../js/sys/user.js"></script>
+	<script src="../../js/sys/merchant.js"></script>
 
 	</body>
 </html>

@@ -48,7 +48,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/sys/config.html",
+    "url": "/pages/sys/config.html",
     "visible": "10"
   },
   {
@@ -99,7 +99,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/tool/build/form_builder.html",
+    "url": "/pages/tool/build/form_builder.html",
     "visible": "10"
   },
   {
@@ -116,7 +116,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/news/list.html",
+    "url": "/pages/news/list.html",
     "visible": "10"
   },
   {
@@ -167,7 +167,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/log/operlog.html",
+    "url": "/pages/log/operlog.html",
     "visible": "10"
   },
   {
@@ -201,7 +201,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/config/list.html",
+    "url": "/pages/config/list.html",
     "visible": "10"
   },
 
@@ -219,7 +219,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/tool/gen/gen.html",
+    "url": "/pages/tool/gen/gen.html",
     "visible": "10"
   },
   {
@@ -228,15 +228,15 @@
     "createDateTimeStr": "2018-03-16 11:33:00",
     "createTimeStr": "2018-03-16",
     "icon": "#",
-    "menuId": 4,
-    "menuName": "资源管理",
+    "menuId": 3,
+    "menuName": "供应商管理",
     "menuType": "C",
     "orderNum": "3",
     "parentId": 1,
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/sys/menue.html",
+    "url": "/pages/sys/merchant.html",
     "visible": "10"
   },
   {
@@ -287,7 +287,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/dict/type/list.html",
+    "url": "/pages/dict/type/list.html",
     "visible": "10"
   },
 
@@ -339,7 +339,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/sys/post.html",
+    "url": "/pages/sys/post.html",
     "visible": "10"
   },
 
@@ -390,7 +390,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/notice/list.html",
+    "url": "/pages/notice/list.html",
     "visible": "10"
   },
   {
@@ -424,7 +424,7 @@
     "perms": "",
     "updateDateTimeStr": "",
     "updateTimeStr": "",
-    "url": "/hplus/pages/sys/dept.html",
+    "url": "/pages/sys/dept.html",
     "visible": "10"
   }
 ]
